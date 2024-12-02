@@ -19,7 +19,12 @@ def array_check_main():
         temp_array = list(map(int, line.split()))
         if check_if_sorted(temp_array) and numcheck(temp_array):
             total += 1
-
+        else:
+            for i in range(len(temp_array)):
+                retry_array = temp_array[:i] + temp_array[i+1:]
+                if check_if_sorted(retry_array) and numcheck(retry_array):
+                    total += 1
+                    break
     print(total)
 
 def __main__():
