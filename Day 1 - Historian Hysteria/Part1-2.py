@@ -1,5 +1,5 @@
 def readfile():
-    with open('list.txt', 'r') as f:
+    with open('list1.txt', 'r') as f:
         return f.readlines()
 
 def __main__():
@@ -13,13 +13,12 @@ def __main__():
         array_a.append(a)
         b = temp_array[1]
         array_b.append(b)
-    array_a.sort()
-    array_b.sort()
     for i in range(len(array_a)):
-        if array_a[i] < array_b[i]:
-            total += array_b[i] - array_a[i]
-        else:
-            total += array_a[i] - array_b[i]
+        total_tmp = 0
+        for j in range(len(array_b)):
+            if array_a[i] == array_b[j]:
+                total_tmp += 1
+        total += total_tmp * array_a[i]
     print(total)
     
 
